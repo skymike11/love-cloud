@@ -1,7 +1,7 @@
 package team.seckillgoods.mapper;
 
-import team.seckillgoods.entity.ActiveGoods;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import team.seckillgoods.entity.SeckillGoods;
 
 /**
  * <p>
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author van
- * @since 2019-12-05
+ * @since 2019-12-06
  */
-public interface ActiveGoodsMapper extends BaseMapper<ActiveGoods> {
+public interface SeckillGoodsMapper extends BaseMapper<SeckillGoods> {
 
 }

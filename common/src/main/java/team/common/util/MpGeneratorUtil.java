@@ -2,15 +2,11 @@ package team.common.util;
 
 import java.util.*;
 
-import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
-import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 /**
@@ -31,14 +27,9 @@ public class MpGeneratorUtil {
         str[2] = scanner.next();
         return str;
     }
-    /**
-     * <p>
-     * MySQL 生成演示
-     * </p>
-     */
+
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
-
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         final String projectPath = System.getProperty("user.dir");
@@ -50,13 +41,14 @@ public class MpGeneratorUtil {
         gc.setAuthor("van");
         gc.setEnableCache(true);
         gc.setOpen(false);
+        gc.setEnableCache(false);
         gc.setBaseResultMap(true);
         gc.setBaseColumnList(true);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
         dsc.setUrl("jdbc:mysql://127.0.0.1:3306/lovecloud?characterEncoding=utf8&serverTimezone=UTC");
@@ -66,6 +58,7 @@ public class MpGeneratorUtil {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setInclude(tables);
+        strategy.setTablePrefix(new String[] { "t_"});
         strategy.setEntityBuilderModel(true);
         mpg.setStrategy(strategy);
 
@@ -96,5 +89,4 @@ public class MpGeneratorUtil {
 
         mpg.execute();
     }
-
 }

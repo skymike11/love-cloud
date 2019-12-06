@@ -1,7 +1,7 @@
 package team.seckillgoods.service;
 
-import team.seckillgoods.entity.DailyGoods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import team.seckillgoods.entity.Goods;
 
 /**
  * <p>
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author van
- * @since 2019-12-05
+ * @since 2019-12-06
  */
-public interface IDailyGoodsService extends IService<DailyGoods> {
+public interface IGoodsService extends IService<Goods> {
 
 }

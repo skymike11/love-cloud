@@ -1,8 +1,8 @@
 package team.seckillorder.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -12,8 +12,9 @@ import java.io.Serializable;
  * </p>
  *
  * @author van
- * @since 2019-12-05
+ * @since 2019-12-06
  */
+@TableName("t_order")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -2,6 +2,8 @@ package team.seckillgoods.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -11,22 +13,23 @@ import java.io.Serializable;
  * </p>
  *
  * @author van
- * @since 2019-12-05
+ * @since 2019-12-06
  */
-public class ActiveGoods implements Serializable {
+@TableName("t_seckill_goods")
+public class SeckillGoods implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * activegoodsid
+     * seckillgoodsid
      */
-    @TableId(value = "active_goods_id", type = IdType.AUTO)
-    private Long activeGoodsId;
+    @TableId(value = "seckill_goods_id", type = IdType.AUTO)
+    private Long seckillGoodsId;
 
     /**
-     * dailygoodsid
+     * goodsid
      */
-    private Long dailyGoodsId;
+    private String goodsId;
 
     /**
      * 数量
@@ -49,21 +52,21 @@ public class ActiveGoods implements Serializable {
     private LocalDateTime endTime;
 
 
-    public Long getActiveGoodsId() {
-        return activeGoodsId;
+    public Long getSeckillGoodsId() {
+        return seckillGoodsId;
     }
 
-    public ActiveGoods setActiveGoodsId(Long activeGoodsId) {
-        this.activeGoodsId = activeGoodsId;
+    public SeckillGoods setSeckillGoodsId(Long seckillGoodsId) {
+        this.seckillGoodsId = seckillGoodsId;
         return this;
     }
 
-    public Long getDailyGoodsId() {
-        return dailyGoodsId;
+    public String getGoodsId() {
+        return goodsId;
     }
 
-    public ActiveGoods setDailyGoodsId(Long dailyGoodsId) {
-        this.dailyGoodsId = dailyGoodsId;
+    public SeckillGoods setGoodsId(String goodsId) {
+        this.goodsId = goodsId;
         return this;
     }
 
@@ -71,7 +74,7 @@ public class ActiveGoods implements Serializable {
         return quanty;
     }
 
-    public ActiveGoods setQuanty(Long quanty) {
+    public SeckillGoods setQuanty(Long quanty) {
         this.quanty = quanty;
         return this;
     }
@@ -80,7 +83,7 @@ public class ActiveGoods implements Serializable {
         return price;
     }
 
-    public ActiveGoods setPrice(Long price) {
+    public SeckillGoods setPrice(Long price) {
         this.price = price;
         return this;
     }
@@ -89,7 +92,7 @@ public class ActiveGoods implements Serializable {
         return startTime;
     }
 
-    public ActiveGoods setStartTime(LocalDateTime startTime) {
+    public SeckillGoods setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
         return this;
     }
@@ -98,16 +101,16 @@ public class ActiveGoods implements Serializable {
         return endTime;
     }
 
-    public ActiveGoods setEndTime(LocalDateTime endTime) {
+    public SeckillGoods setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
         return this;
     }
 
     @Override
     public String toString() {
-        return "ActiveGoods{" +
-        "activeGoodsId=" + activeGoodsId +
-        ", dailyGoodsId=" + dailyGoodsId +
+        return "SeckillGoods{" +
+        "seckillGoodsId=" + seckillGoodsId +
+        ", goodsId=" + goodsId +
         ", quanty=" + quanty +
         ", price=" + price +
         ", startTime=" + startTime +

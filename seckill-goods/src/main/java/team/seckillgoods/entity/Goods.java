@@ -1,5 +1,6 @@
 package team.seckillgoods.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
@@ -11,17 +12,18 @@ import java.io.Serializable;
  * </p>
  *
  * @author van
- * @since 2019-12-05
+ * @since 2019-12-06
  */
-public class DailyGoods implements Serializable {
+@TableName("t_goods")
+public class Goods implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * dailygoodsid
+     * goodsid
      */
-    @TableId(value = "daily_goods_id", type = IdType.AUTO)
-    private Long dailyGoodsId;
+    @TableId(value = "goods_id", type = IdType.AUTO)
+    private Long goodsId;
 
     /**
      * 商品标题
@@ -64,12 +66,12 @@ public class DailyGoods implements Serializable {
     private LocalDateTime updateTime;
 
 
-    public Long getDailyGoodsId() {
-        return dailyGoodsId;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public DailyGoods setDailyGoodsId(Long dailyGoodsId) {
-        this.dailyGoodsId = dailyGoodsId;
+    public Goods setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
         return this;
     }
 
@@ -77,7 +79,7 @@ public class DailyGoods implements Serializable {
         return title;
     }
 
-    public DailyGoods setTitle(String title) {
+    public Goods setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -86,7 +88,7 @@ public class DailyGoods implements Serializable {
         return images;
     }
 
-    public DailyGoods setImages(String images) {
+    public Goods setImages(String images) {
         this.images = images;
         return this;
     }
@@ -95,7 +97,7 @@ public class DailyGoods implements Serializable {
         return stock;
     }
 
-    public DailyGoods setStock(Integer stock) {
+    public Goods setStock(Integer stock) {
         this.stock = stock;
         return this;
     }
@@ -104,7 +106,7 @@ public class DailyGoods implements Serializable {
         return price;
     }
 
-    public DailyGoods setPrice(Long price) {
+    public Goods setPrice(Long price) {
         this.price = price;
         return this;
     }
@@ -113,7 +115,7 @@ public class DailyGoods implements Serializable {
         return ownSpec;
     }
 
-    public DailyGoods setOwnSpec(String ownSpec) {
+    public Goods setOwnSpec(String ownSpec) {
         this.ownSpec = ownSpec;
         return this;
     }
@@ -122,7 +124,7 @@ public class DailyGoods implements Serializable {
         return enable;
     }
 
-    public DailyGoods setEnable(Boolean enable) {
+    public Goods setEnable(Boolean enable) {
         this.enable = enable;
         return this;
     }
@@ -131,7 +133,7 @@ public class DailyGoods implements Serializable {
         return createTime;
     }
 
-    public DailyGoods setCreateTime(LocalDateTime createTime) {
+    public Goods setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -140,15 +142,15 @@ public class DailyGoods implements Serializable {
         return updateTime;
     }
 
-    public DailyGoods setUpdateTime(LocalDateTime updateTime) {
+    public Goods setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
         return this;
     }
 
     @Override
     public String toString() {
-        return "DailyGoods{" +
-        "dailyGoodsId=" + dailyGoodsId +
+        return "Goods{" +
+        "goodsId=" + goodsId +
         ", title=" + title +
         ", images=" + images +
         ", stock=" + stock +

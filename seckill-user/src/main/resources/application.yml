@@ -10,16 +10,16 @@ spring:
     password: 123456
   redis:
     host: 127.0.0.1
-    timeout: 10000ms #redis请求超时时间，超过此值redis自动断开连接
+    timeout: 10000ms #redis����ʱʱ�䣬������ֵredis�Զ��Ͽ�����
     jedis:
       pool:
-        max-active: 32 #jedis最大连接数，超过此值则提示获取不到连接异常
-        max-wait: 10000ms #jedis最大等待时间，超过此值会提示连接超时异常
-        max-idle: 32 #jedis最大等待连接数
-        min-idle: 0 #jedis最小等待连接数
+        max-active: 32 #jedis�����������������ֵ����ʾ��ȡ���������쳣
+        max-wait: 10000ms #jedis���ȴ�ʱ�䣬������ֵ����ʾ���ӳ�ʱ�쳣
+        max-idle: 32 #jedis���ȴ�������
+        min-idle: 0 #jedis��С�ȴ�������
 eureka:
   client:
-    service‐url:
+    service�\url:
       defaultZone: http://localhost:8888/eureka
 
 mybatis-plus:

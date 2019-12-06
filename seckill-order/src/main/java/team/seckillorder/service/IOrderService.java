@@ -1,9 +1,7 @@
 package team.seckillorder.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import team.seckillorder.entity.Order;
-
-import java.util.Map;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -11,9 +9,8 @@ import java.util.Map;
  * </p>
  *
  * @author van
- * @since 2019-12-05
+ * @since 2019-12-06
  */
 public interface IOrderService extends IService<Order> {
 
-    void createOrder(String daily_goods_id, Long user_id);
 }

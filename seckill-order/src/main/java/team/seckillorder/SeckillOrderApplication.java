@@ -8,11 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaClient
-@ComponentScan(basePackages={"team.seckillorder.mapper", "team.seckilluser.mapper", "team.seckillgoods.mapper"})
+@MapperScan("team.seckillorder.mapper")
 public class SeckillOrderApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SeckillOrderApplication.class, args);
     }
-
 }

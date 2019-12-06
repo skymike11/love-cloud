@@ -1,7 +1,7 @@
 package team.seckillorder.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import team.seckillorder.entity.Order;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import team.seckillorder.entity.Order;
  * </p>
  *
  * @author van
- * @since 2019-12-05
+ * @since 2019-12-06
  */
 public interface OrderMapper extends BaseMapper<Order> {
 
