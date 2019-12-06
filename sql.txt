@@ -1,0 +1,153 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost
+Source Server Version : 80017
+Source Host           : localhost:3306
+Source Database       : lovecloud
+
+Target Server Type    : MYSQL
+Target Server Version : 80017
+File Encoding         : 65001
+
+Date: 2019-12-06 09:21:31
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for active_goods
+-- ----------------------------
+DROP TABLE IF EXISTS `active_goods`;
+CREATE TABLE `active_goods` (
+`active_goods_id`  bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'activegoodsid' ,
+`daily_goods_id`  bigint(20) NOT NULL COMMENT 'dailygoodsid' ,
+`quanty`  bigint(20) NULL DEFAULT NULL COMMENT '数量' ,
+`price`  bigint(20) NULL DEFAULT NULL COMMENT '秒杀价格' ,
+`start_time`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始时间' ,
+`end_time`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '结束时间' ,
+PRIMARY KEY (`active_goods_id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='秒杀商品信息表'
+AUTO_INCREMENT=30
+
+;
+
+-- ----------------------------
+-- Records of active_goods
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for daily_goods
+-- ----------------------------
+DROP TABLE IF EXISTS `daily_goods`;
+CREATE TABLE `daily_goods` (
+`daily_goods_id`  bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'dailygoodsid' ,
+`title`  varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品标题' ,
+`images`  varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '商品的图片，多个图片以‘,’分割' ,
+`stock`  int(8) UNSIGNED NULL DEFAULT 9999 COMMENT '库存' ,
+`price`  bigint(16) NOT NULL DEFAULT 0 COMMENT '销售价格' ,
+`own_spec`  varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '商品规格参数json键值对，反序列化时请使用linkedHashMap，保证有序' ,
+`enable`  tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否有效，0无效，1有效' ,
+`create_time`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间' ,
+`update_time`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间' ,
+PRIMARY KEY (`daily_goods_id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='商品信息表'
+AUTO_INCREMENT=20000000000
+
+;
+
+-- ----------------------------
+-- Records of daily_goods
+-- ----------------------------
+BEGIN;
+INSERT INTO `daily_goods` VALUES ('1', 'heart', '', '9999', '520', '', '1', '2019-12-05 23:36:25', '2019-12-05 23:36:25');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for goods_stock
+-- ----------------------------
+DROP TABLE IF EXISTS `goods_stock`;
+CREATE TABLE `goods_stock` (
+`goods_stock_id`  bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'goodsstockid' ,
+`daily_goods_id`  bigint(20) NOT NULL COMMENT 'dailygoodsid' ,
+`quanty`  decimal(18,2) NULL DEFAULT NULL COMMENT '剩余数量' ,
+PRIMARY KEY (`goods_stock_id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+AUTO_INCREMENT=12565640000000
+
+;
+
+-- ----------------------------
+-- Records of goods_stock
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for order
+-- ----------------------------
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+`order_id`  bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'orderid' ,
+`user_id`  bigint(20) NOT NULL COMMENT '用户id' ,
+`total_fee`  bigint(20) NOT NULL COMMENT '总金额' ,
+`status`  tinyint(1) NULL DEFAULT NULL COMMENT '订单的状态，1、未付款 2、已付款' ,
+`create_time`  timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '订单创建时间' ,
+`pay_time`  timestamp NULL DEFAULT NULL COMMENT '订单支付时间' ,
+PRIMARY KEY (`order_id`),
+INDEX `multi_key_status_time` (`status`, `create_time`) USING BTREE 
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_bin
+AUTO_INCREMENT=7000000000005
+
+;
+
+-- ----------------------------
+-- Records of order
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+`user_id`  bigint(20) NOT NULL AUTO_INCREMENT ,
+`username`  varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名' ,
+`password`  varchar(60) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码，加密存储' ,
+`phone`  varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号' ,
+`create_time`  timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
+`update_time`  timestamp NULL DEFAULT NULL COMMENT '更新时间' ,
+PRIMARY KEY (`user_id`),
+UNIQUE INDEX `username` (`username`) USING BTREE ,
+UNIQUE INDEX `phone` (`phone`) USING BTREE 
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='用户表'
+
+;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+BEGIN;
+INSERT INTO `user` VALUES ('1', 'Sam Li', '123', null, '2019-12-05 23:36:51', null);
+COMMIT;
+
+-- ----------------------------
+-- Auto increment value for active_goods
+-- ----------------------------
+ALTER TABLE `active_goods` AUTO_INCREMENT=30;
