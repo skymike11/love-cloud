@@ -7,6 +7,9 @@
     <file url="file://$PROJECT_DIR$/seckill-order" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/seckill-stock" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/seckill-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seckill-user/src/main/resources/application.yml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zuul" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
   </component>
 </project>

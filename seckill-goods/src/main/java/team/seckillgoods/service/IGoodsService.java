@@ -11,6 +11,7 @@ import team.seckillgoods.entity.Goods;
  * @author van
  * @since 2019-12-06
  */
-public interface IGoodsService extends IService<Goods> {
 
+public interface IGoodsService extends IService<Goods> {
+    Long getGoodsNumber(String goods_id);
 }
