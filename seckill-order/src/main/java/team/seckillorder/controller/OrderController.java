@@ -1,9 +1,10 @@
 package team.seckillorder.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.stereotype.Controller;
+import team.seckillorder.service.IGoodsRemoteService;
 
 /**
  * <p>
@@ -13,9 +14,19 @@ import org.springframework.stereotype.Controller;
  * @author van
  * @since 2019-12-06
  */
-@Controller
-@RequestMapping("/order")
+@RestController
 public class OrderController {
+    @Autowired
+    IGoodsRemoteService goodsRemoteService;
 
+    @RequestMapping(value = "/goods", method = RequestMethod.GET)
+    public String index(@RequestParam(value = "goods_id") String goods_id) {
+        return goodsRemoteService.sayGoods(goods_id);
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return goodsRemoteService.sayTest();
+    }
 }
 

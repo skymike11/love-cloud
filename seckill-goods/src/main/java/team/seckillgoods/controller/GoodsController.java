@@ -1,9 +1,11 @@
 package team.seckillgoods.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
+import team.seckillgoods.service.IGoodsService;
 
 /**
  * <p>
@@ -13,9 +15,17 @@ import org.springframework.stereotype.Controller;
  * @author van
  * @since 2019-12-06
  */
-@Controller
-@RequestMapping("/goods")
+@RestController
 public class GoodsController {
-
+    @Autowired
+    private IGoodsService goodsService;
+    @RequestMapping("/goods")
+    public String index(@RequestParam String goods_id) {
+        return goodsService.getById(goods_id).getTitle();
+    }
+    @RequestMapping("/test")
+    public String test() {
+        return "test";
+    }
 }
 

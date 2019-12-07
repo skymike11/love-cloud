@@ -1,5 +1,6 @@
 package team.seckillorder.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import team.seckillorder.entity.Order;
 import team.seckillorder.mapper.OrderMapper;
 import team.seckillorder.service.IOrderService;
@@ -16,5 +17,4 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements IOrderService {
-
 }

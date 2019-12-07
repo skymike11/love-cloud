@@ -4,6 +4,7 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 /**
  * @Auther: wdd
  * @Date: 2019/9/13 10:47

@@ -11,6 +11,7 @@
         <module name="common" />
         <module name="seckill-order" />
         <module name="server" />
+        <module name="zuul" />
         <module name="seckill-goods" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="seckill-user" options="-parameters" />
       <module name="server" options="-parameters" />
       <module name="user" options="-parameters" />
+      <module name="zuul" options="-parameters" />
     </option>
   </component>
 </project>

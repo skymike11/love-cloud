@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/seckill-order/pom.xml" />
         <option value="$PROJECT_DIR$/seckill-stock/pom.xml" />
         <option value="$PROJECT_DIR$/seckill-user/pom.xml" />
+        <option value="$PROJECT_DIR$/zuul/pom.xml" />
       </list>
     </option>
   </component>

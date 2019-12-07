@@ -1,5 +1,6 @@
 package team.seckillgoods.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import team.seckillgoods.entity.Goods;
 import team.seckillgoods.mapper.GoodsMapper;
 import team.seckillgoods.service.IGoodsService;
@@ -16,5 +17,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements IGoodsService {
+    @Autowired
+    private GoodsMapper goodsMapper;
 
+    @Override
+    public Long getGoodsNumber(String goods_id) {
+        Goods goods = goodsMapper.selectById(goods_id);
+        return goods.getPrice();
+    }
 }
